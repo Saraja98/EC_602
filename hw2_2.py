@@ -12,9 +12,9 @@ end = time.time()
 total_time = (end - start) #in seconds
 total_time1=total_time*(2**(-8))*(10**(9))  #nanoseconds
 total_time2=total_time*(10**6) #in microseconds
-total_time3=total_time*(2**(32)) #in seconds 
+total_time3=total_time*(2**(48)) #in seconds 
 
-total_time4=total_time*(2**(64))
+total_time4=total_time*(2**(80))
 years = total_time4 / 60 / 60 / 24 / 365.25 #in years 
 
 print("measured 8-bit time (nanoseconds):"+ str(total_time1))
