@@ -30,7 +30,7 @@ def largest_single():
     return (np.float32(c))
 
 def smallest_single():
-    exponent_single2 = 2**minsingle_bias_value - maxsingle_bias_value
+    exponent_single2 = 2**(minsingle_bias_value - maxsingle_bias_value)
     fraction4 = 2**-(max(single_i_range))
     d=exponent_single2 * fraction4
     return (np.float32(d))
