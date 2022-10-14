@@ -1,6 +1,6 @@
 
 p1 = [1,2,3,6,2]
-p2 = [7,48,64,78]
+p2 = [1,2,3,6,2]
 
 class Polynomial():
     def __init__(self,polynomial):
@@ -20,6 +20,9 @@ class Polynomial():
       
     def add(self,second_object):
         return {k: self.terms_dict.get(k, 0) + second_object.terms_dict.get(k, 0) for k in set(self.terms_dict) | set(second_object.terms_dict)}
+    def subtract(self,second_object):
+        return {key: self.terms_dict[key] - second_object.terms_dict.get(key, 0) for key in self.terms_dict}
+    
 
         
     
@@ -27,8 +30,13 @@ polynomial1 = Polynomial(p1)
 
 polynomial2 = Polynomial(p2)  
 z1 = polynomial1.add(polynomial2)
+z1 = polynomial1.subtract(polynomial2)
 
 
 
 print(z1)
+#print(z2)
 
+   
+
+#polynomial3-=polynomial1.add(polynomial2)
