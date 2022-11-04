@@ -37,7 +37,8 @@ class Wedding():
                     
                 return memory
     def shuffle(self,guests):
-        
+      if len(guests):
+           
 
 
             n = len(guests)
@@ -76,9 +77,21 @@ class Wedding():
             #print("\nShuffle Levels: {}\n".format(''.join(guests)))
             #for i in range(len(memory)):
             #    print("Level {}".format(i), memory[i])
+            #print(type(memory))
+            if len(guests)==3:
+              return memory[2]
+            elif len(guests)>3:
                     
-            return memory[3]
+              return memory[3]
+            elif len(guests)==2:
+              return memory[1]
+            elif len(guests)==1:
+              return memory[0]
 
+      #if len(guests)<3:
+        #w=Wedding()
+        #m=w.linear(guests)
+        #return m[1]
 def  show_result(v, partial=False,ind=None):
   v.sort()
   if not partial:
@@ -159,3 +172,13 @@ bp guests n barriers ind
 
 if __name__ == '__main__':
   main()
+
+
+
+
+#def main():
+
+#  w = Wedding()
+#  print(w.shuffle("a"))
+#if __name__ == '__main__':
+#  main()
