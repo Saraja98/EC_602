@@ -84,7 +84,7 @@ class Wedding():
 
     def barriers(self, guests, barriers):
         
-        #establishing position of barriers (assuming barrier put before position 2)
+        #establishing position of barriers 
         #guests = "abcde"
         #barriers = [2,3]
         li = list(guests)
