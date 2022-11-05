@@ -113,6 +113,7 @@ class Wedding():
                 combos.append(item)
             if len(item) > 2:
                 print("more than 2", item)
+                linear.Wedding(item)  #will need to convert item to a string first!
         print("these are combos",combos) #shows list of now-swapped panels
 
         #swaps first and last guests if no barrier at 0 
