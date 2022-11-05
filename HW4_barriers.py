@@ -83,20 +83,43 @@ class Wedding():
 
 
     def barriers(self, guests, barriers):
-      li = list(guests)
-      pan = 0
-      if (len(barriers) == 1) and (str(pan) in guests):
-        final = Wedding.linear(guests)  #treat guests like a linear panel when barrier placed before position 0; call linear func 
-      else:
-        b_loc = barriers[0]  #finds point where to break up guest list
-          #breaking up guest list according to barriers, but need to generalize!!
-          sep = li[:b_loc] #all guests before barrier
-          sep2 = li[b_loc:] #all guests after barrier
-          new_guests = sep2 + sep #makes new guest list "cdeab" to be more accurate to barrier conditions
-          #print(new_guests)
-          final = Wedding.linear(new_guests)
+        
+        #establishing position of barriers (assuming barrier put before position 2)
+        #guests = "abcde"
+        #barriers = [2,3]
+        li = list(guests)
+        combos = [] #empty list to put rearranged individual panels in
+        if (len(barriers) == 1) and (str(0) in barriers):  #send guests string to linear function if 1 barrier at 0
+            print("regular panel")
+            final = linear.Wedding(guests) 
+        else:
+            pass
 
-      return(final)
+        #breaks into separated panels
+        s = barriers+[len(li)]
+        sep_panels = ([li[i1:i2] for i1,i2 in zip([0]+s[:-1],s)])  
+        print(sep_panels)
+        print(len(sep_panels))
+
+        #swapping guests in each separated panel
+        for item in sep_panels:
+
+            if len(item) == 1:    #keeps panel of 1 guests as-is
+                print(item)
+                combos.append(item)
+            if len(item) == 2:  #swaps guests in panel of 2
+                item[0],item[1]= item[1],item[0]
+                print(item)
+                combos.append(item)
+            if len(item) > 2:
+                print("more than 2", item)
+        print("these are combos",combos) #shows list of now-swapped panels
+
+        #swaps first and last guests if no barrier at 0 
+        #if not str(0) in barriers:
+            #print("no zero")
+            #end_swap = li[0], li[-1] = li[-1], li[0] 
+
       
 
 
