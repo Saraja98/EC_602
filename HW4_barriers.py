@@ -87,13 +87,14 @@ class Wedding():
       pan = 0
       if (len(barriers) == 1) and (str(pan) in guests):
         final = Wedding.linear(guests)  #treat guests like a linear panel when barrier placed before position 0; call linear func 
-      b_loc = barriers[0]  #finds point where to break up guest list
-      #breaking up guest list according to barriers, but need to generalize!!
-      sep = li[:b_loc] #all guests before barrier
-      sep2 = li[b_loc:] #all guests after barrier
-      new_guests = sep2 + sep #makes new guest list "cdeab" to be more accurate to barrier conditions
-      #print(new_guests)
-      final = Wedding.linear(new_guests)
+      else:
+        b_loc = barriers[0]  #finds point where to break up guest list
+          #breaking up guest list according to barriers, but need to generalize!!
+          sep = li[:b_loc] #all guests before barrier
+          sep2 = li[b_loc:] #all guests after barrier
+          new_guests = sep2 + sep #makes new guest list "cdeab" to be more accurate to barrier conditions
+          #print(new_guests)
+          final = Wedding.linear(new_guests)
 
       return(final)
       
