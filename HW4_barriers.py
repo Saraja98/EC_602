@@ -84,6 +84,9 @@ class Wedding():
 
     def barriers(self, guests, barriers):
       li = list(guests)
+      pan = 0
+      if (len(barriers) == 1) and (str(pan) in guests):
+        final = Wedding.linear(guests)  #treat guests like a linear panel when barrier placed before position 0; call linear func 
       b_loc = barriers[0]  #finds point where to break up guest list
       #breaking up guest list according to barriers, but need to generalize!!
       sep = li[:b_loc] #all guests before barrier
