@@ -4,7 +4,7 @@
 
 
 
-
+from itertools import product
 class Wedding():
     def __init__(self) -> None:
          pass
@@ -37,54 +37,127 @@ class Wedding():
                     
                 return memory
     def shuffle(self,guests):
-        
 
-
+      if len(guests):
             n = len(guests)
-            w=Wedding()
-          
-            
-            
-            memory = w.linear(guests) # memory for shuffle starts off as memory for linear function
-            
-            for x in range(n):
-                # Level 0 and level 1 remained unchanged, so we skip those
-                if x >= 2:
-                    current_guests = guests[:x+1] # Creates list with only first x+1 number of guests
-                
-                    # Clockwise (to the right) case
-                    cw_list = current_guests[-1] + current_guests[:-1]
-                    cw_str = ''.join(cw_list)
-                    memory[x].append(cw_str)
-                    #print(memory)
-                    
-                    # Counter Clockwise (to the left) case
-                    ccw_list = current_guests[1:] + current_guests[0]
-                    ccw_str = ''.join(ccw_list)
-                    memory[x].append(ccw_str)
-                    #print(memory)
-                    
-                    # Remaining cases where first and last letter swap, everything in between does linear shuffle
-                    middle_ltrs = guests[1:-1]
-                    middle_ltrs_linear = w.linear(middle_ltrs)
-                    
-                    for y in middle_ltrs_linear[x-2]:
-                        current_str = current_guests[-1] + y + current_guests[0]
-                        memory[x].append(current_str)
-                        memory
-            #for i in t[3]:
-            #    print(i)
-                        
-                    
-                    
-            # Prints memory result in a nice format
-            #print("\nShuffle Levels: {}\n".format(''.join(guests)))
-            #for i in range(len(memory)):
-                #print("Level {}".format(i), memory[i])
-                    
-            return memory
+            w=Wedding()  
+             
+            if "^" in (guests):
+              memory = w.linear(guests) # memory for shuffle starts off as memory for linear function     
+              #print("i am here")
+              for x in range(n):
+                  # Level 0 and level 1 remained unchanged, so we skip those
+                  if x >= 2:
+                      current_guests = guests[:x+1]# Creates list with only first x+1 number of guests
+                  
+                      # Clockwise (to the right) case
+                      cw_list = current_guests[-1] + current_guests[:-1]+"^"
+                      cw_str = ''.join(cw_list)
+                      memory[x].append(cw_str)
+                      
+                      # Counter Clockwise (to the left) case
+                      ccw_list = current_guests[1:] + current_guests[0]
+                      ccw_str = ''.join(ccw_list)
+                      memory[x].append(ccw_str)
+                      
+                      # Remaining cases where first and last letter swap, everything in between does linear shuffle
+                      middle_ltrs = guests[1:-1]
+                      middle_ltrs_linear = w.linear(middle_ltrs)
+                      
+                      for y in middle_ltrs_linear[x-2]:
+                          current_str = current_guests[-1] + y + current_guests[0]
+                          memory[x].append(current_str)
+
+               # Prints memory result in a nice format
+              #print("\nShuffle Levels: {}\n".format(''.join(guests)))
+              #for i in range(len(memory)):
+               # print("Level {}".format(i), memory[i])
+            #print(type(memory))
+              #print("\nShuffle Levels: {}\n".format(''.join(guests)))
+              for i in range(0,1):
+               
+                  #print("Level {}".format(i), memory[i])
+                  m=memory[4]
+                  #print(m)
+                  #print(m)
+                  x=m[8]
+                  x=x[:-1]
+                  #print(x)
+                  m[8]=x
+                  #print(m)
+              #print(type(memory))
+              return m
+            else:
+              memory = w.linear(guests) # memory for shuffle starts off as memory for linear function     
+              for x in range(n):
+                  # Level 0 and level 1 remained unchanged, so we skip those
+                  if x >= 2:
+                      current_guests = guests[:x+1] # Creates list with only first x+1 number of guests
+                  
+                      # Clockwise (to the right) case
+                      cw_list = current_guests[-1] + current_guests[:-1]
+                      cw_str = ''.join(cw_list)
+                      memory[x].append(cw_str)
+                      
+                      # Counter Clockwise (to the left) case
+                      ccw_list = current_guests[1:] + current_guests[0]
+                      ccw_str = ''.join(ccw_list)
+                      memory[x].append(ccw_str)
+                      
+                      # Remaining cases where first and last letter swap, everything in between does linear shuffle
+                      middle_ltrs = guests[1:-1]
+                      middle_ltrs_linear = w.linear(middle_ltrs)
+                      
+                      for y in middle_ltrs_linear[x-2]:
+                          current_str = current_guests[-1] + y + current_guests[0]
+                          memory[x].append(current_str)
+              for i in range(0,len(guests)):
+                m=memory[len(guests)-1]
+                return m
 
 
+    def barriers(self, guests, barriers):
+      
+        w=Wedding()
+        #print(w.end_swap(guests))
+        #print("i am in barriers")
+        barriers=list(barriers)
+
+        li = list(guests)
+        combos = [] #empty list to put rearranged individual panels in
+
+        #breaks into separated panels
+        s = barriers+[len(li)]
+        sep_panels = ([li[i1:i2] for i1,i2 in zip([0]+s[:-1],s)])
+
+    
+        #new_s = "".join(sep_panels)
+        for i in sep_panels:
+            
+            new_s = "".join(i)
+        
+            m=w.linear(new_s)
+
+    
+            ar=(m[len(i)-1])
+            combos.append(ar)
+        # print(combos)
+
+        combos2 = []
+        for element in product(*combos):
+            combos2.append(element)
+        #print(combos2)
+        for people in (combos2):
+            #print("i am in res")
+            res = '|'.join(people)
+            #print(res)
+    
+            return list(res)
+            
+        
+ 
+
+      
 def  show_result(v, partial=False,ind=None):
   v.sort()
   if not partial:
@@ -139,8 +212,43 @@ sp guests ind
 bp guests n barriers ind
 """)
   w = Wedding()
-  
+  while True:
+    asktype=input().split()
+    if not asktype or asktype[0] == "quit":
+      break;
+    elif asktype[0] == "tests":
+      standard_tests()
+    elif asktype[0] == "s":
+      guests = asktype[1]
+      r = w.shuffle(guests)
+      show_result(r);
+    elif asktype[0] == "b":
+      guests,nbar,bars = asktype[1],asktype[2],asktype[3:]
+      r = w.barriers(guests, [int(x) for x in bars])
+      show_result(r)
+    elif asktype[0] == "sp":
+      guests,ind = asktype[1:]
+      r = w.shuffle(guests);
+      show_result(r, True, int(ind));
+    elif asktype[0] == "bp":
+      guests,nbar,bars,ind  = asktype[1],asktype[2],asktype[3:-1],asktype[-1]
+      r = w.barriers(guests, [int(x) for x in bars])
+      show_result(r, True, int(ind))
     
 
 if __name__ == '__main__':
   main()
+
+
+
+
+
+
+
+
+#def main():
+
+#  w = Wedding()
+#  print(w.shuffle("@#$%^"))
+#if __name__ == '__main__':
+#   main()
