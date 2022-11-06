@@ -2,9 +2,9 @@
 # Copyright 2022 Saraja saraja@bu.edu
 # Copyright 2022 Chris Kelly  cekelly@bu.edu
 
-
-
 from itertools import product
+
+
 class Wedding():
     def __init__(self) -> None:
          pass
@@ -117,11 +117,11 @@ class Wedding():
 
 
     def barriers(self, guests, barriers):
-      
+        #print(guests)
+        #print(barriers)
+        barriers = list(barriers)
         w=Wedding()
-        #print(w.end_swap(guests))
-        #print("i am in barriers")
-        barriers=list(barriers)
+
 
         li = list(guests)
         combos = [] #empty list to put rearranged individual panels in
@@ -129,43 +129,83 @@ class Wedding():
         #breaks into separated panels
         s = barriers+[len(li)]
         sep_panels = ([li[i1:i2] for i1,i2 in zip([0]+s[:-1],s)])
+        #print(sep_panels)
+        split = len(sep_panels[-1])
+        #print(split)
 
+
+        #print("no zero")
+
+        #attaching last panel to first and running linear function
+        ends = sep_panels[-1] + sep_panels[0]
+        #print(ends)
+        #print(sep_panels)
     
-        #new_s = "".join(sep_panels)
-        for i in sep_panels:
-            
-            new_s = "".join(i)
+        sep_panels.pop()
+        #print(sep_panels)
+        sep_panels[0]=ends
+        #print(sep_panels)
         
-            m=w.linear(new_s)
+        combos = []
 
-    
+        for i in sep_panels:
+            new_s = "".join(i)
+            m=w.linear(new_s)
+            
             ar=(m[len(i)-1])
             combos.append(ar)
-        # print(combos)
+        #print("look here",combos)
+        #print("look here",combos[0], len(combos[0]))
+        #splitat = list(combos[0])
+        #print(splitat, type(splitat))
+        #leftli = []
+        #rightli = []
+        #for i in splitat:
+            #left = i[split:]
+            #leftli.append(left)  #split = 3
+            #right = i[:split]
+            #rightli.append(right)
+        #print(leftli)  #need to put these in combos
+        #print(rightli)
+        #combos.pop(0)
+        #print(combos)
+        #combos.insert(0, leftli)
+        #print(combos)
+        #combos.insert(-1,rightli)
+        #print(combos)
+
+
 
         combos2 = []
+
         for element in product(*combos):
             combos2.append(element)
         #print(combos2)
-        for people in (combos2):
-            #print("i am in res")
-            res = '|'.join(people)
-            #print(res)
-    
-            return list(res)
-            
         
- 
+        
+        resoutput = []
+        for item in combos2:
+            mylist = list(item)
+            splitat = item[0]
+            left = splitat[split:]
+            right = splitat[:split]
+        
+            mylist.pop(0)
 
-      
+            mylist.insert(0, left)
+
+            mylist.append(right)
+            #print(mylist)
+            res = '|'.join(mylist)
+            resoutput.append(res)
+        return(resoutput)
+
 def  show_result(v, partial=False,ind=None):
   v.sort()
   if not partial:
     print(len(v),"\n".join(v),sep="\n")
   else:
     print(len(v),v[ind],sep="\n")
-
-
 
 
 def standard_tests():
@@ -246,9 +286,15 @@ if __name__ == '__main__':
 
 
 
+        
+            
+
 #def main():
 
-#  w = Wedding()
-#  print(w.shuffle("@#$%^"))
+    #w = Wedding()
+    #print(w.barriers("abcdefg", {2,4}))
+  
+    
+
 #if __name__ == '__main__':
-#   main()
+  #main()
