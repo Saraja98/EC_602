@@ -118,55 +118,40 @@ class Wedding():
 
     def barriers(self, guests, barriers):
         
-        #establishing position of barriers 
-        #guests = "abcde"
-        #barriers = [2,3]
         w=Wedding()
+        #print(w.end_swap(guests))
+
         li = list(guests)
         combos = [] #empty list to put rearranged individual panels in
-        if (len(barriers) == 1) and (str(0) in barriers):  #send guests string to linear function if 1 barrier at 0
-            print("regular panel")
-            final = w.linear.Wedding(guests) 
-        else:
-            pass
 
         #breaks into separated panels
         s = barriers+[len(li)]
         sep_panels = ([li[i1:i2] for i1,i2 in zip([0]+s[:-1],s)])
+        print(sep_panels)
+
+    
         #new_s = "".join(sep_panels)
-        #print(new_s)
         for i in sep_panels:
            
             new_s = "".join(i)
         
             m=w.linear(new_s)
+
    
-            arr1=(m[len(i)-1])
+            ar=(m[len(i)-1])
+            combos.append(ar)
+       # print(combos)
 
-
-            
-        print(len(sep_panels))
-
-        #swapping guests in each separated panel
-        for item in sep_panels:
-
-            if len(item) == 1:    #keeps panel of 1 guests as-is
-            
-                combos.append(item)
-            if len(item) == 2:  #swaps guests in panel of 2
-                item[0],item[1]= item[1],item[0]
-               
-                combos.append(item)
-            if len(item) > 2:
-                w=Wedding()
-                print("more than 2", item)
-                w.linear.Wedding(item)  #will need to convert item to a string first!
-        print("these are combos",combos) #shows list of now-swapped panels
-
-        #swaps first and last guests if no barrier at 0 
-        #if not str(0) in barriers:
-            #print("no zero")
-            #end_swap = li[0], li[-1] = li[-1], li[0] 
+        combos2 = []
+        for element in product(*combos):
+            combos2.append(element)
+        print(combos2)
+        for people in combos2:
+            res = '|'.join(people)
+            print(res)
+        return res
+        
+ 
 
       
 def  show_result(v, partial=False,ind=None):
