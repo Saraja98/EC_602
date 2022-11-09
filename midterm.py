@@ -1,7 +1,7 @@
 
 # Please add your copyright line(s) now.
-# Copyright 2022 yourname1 yn1@bu.edu
-# Copyright 2022 yourname2 yn2@bu.edu
+# Copyright 2022 Shannon Hull sghull@bu.edu
+# Copyright 2022 Saraja saraja@bu.edu
 
 
 """
