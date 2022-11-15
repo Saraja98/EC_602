@@ -36,7 +36,7 @@ int main(){
                 }   
         
         }
-        cout<<"="<<total;
+        cout<<"="<<total<<endl;
         //return 0;  //need to exit program when 0 is entered
         }
     }
