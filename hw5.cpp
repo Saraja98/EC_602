@@ -1,3 +1,6 @@
+// Copyright 2022 Shannon Hull sghull@bu.edu
+// Copyright 2022 Saraja saraja@bu.edu 
+
 #include <iostream>
 #include <cstdint>
 using std::cout;
