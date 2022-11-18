@@ -1,18 +1,51 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
 #include <iostream>
 using std::cout;
 using std::cin;
 using std::endl;
 
 int digits(int num,int base)
-{
+{   int length=0;
+    int result=1;
+    int numVal = 0;
+    int numArray[ ] = {15};
     while (num > 0){
+        int total1;
+        length++;
         int digit = num % base; //modulas (100%37=26)(2%37=2)
         num = num / base;
-    //cout<<"digit:"<<digit<<endl;
-    return digit;
+        cout<<"digit:"<<digit<<endl;
+        //cout << "[" << digit << "] = ";
+        cout << numArray[digit]<<" ";       
+}
+
+        
+        //for(int m = 0; m < length; m++){
+         //   std::cout << "m" <<m<< std::endl;
+         //   result = result * base;
+            
+        //}
+            //cout<<"result:"<<result<<endl;
+            //int final=result*digit;
+            //total1+=final;
+            //cout<<"final"<<final<<endl;
+            
+           
+        
+    //return digit;
         } 
     
-    }
+    
+    
+//function to raise to the power, 22 and 18 ===
+
 int print(const std::string &s,int base)
 {   int total=0;
 	for (int i = s.size() - 1; i >= 0; i--) {
@@ -53,12 +86,12 @@ int convert_base(const std::string &s,int base,int target_base)
 
 {   int var8,var9;
     var8=print(s,base);
-    //cout<<"total:"<<var8<<endl;
+    cout<<"total:"<<var8<<endl;
     //total has to be passed through a function again to convert it into the target base 
     int var4=digits(var8,target_base);
-    cout<<"var4:"<<var4<<endl;
-    var9=print(s,target_base);
-    cout<<"var9:"<<var9<<endl;
+    //cout<<"var4:"<<var4<<endl;
+    //var9=print(s,target_base);
+    //cout<<"var9:"<<var9<<endl;
 
 
    
@@ -76,7 +109,7 @@ int convert_base(const std::string &s,int base,int target_base)
 
 int main()
 {   int m;
-	std::string s("1C");
+	std::string s("12C");
 	convert_base(s,37,80);
     //cout<<m<<endl;
     
