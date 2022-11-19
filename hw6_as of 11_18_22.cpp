@@ -14,7 +14,7 @@ void digits(int num,int base)
     //int numArray [2];
     string buff = " ";
     while (num > 0){
-        {
+        //{
         //int total1;
         length++;
         int digit = num % base; //modulas (100%37=26)(2%37=2)
@@ -24,17 +24,17 @@ void digits(int num,int base)
 
 
 
-        }
-    for(int i = buff.length() - 1; i >= 0; cout << buff[i--])
+        //}
+    //for(int i = buff.length() - 1; i >= 0; cout << buff[i--])
     //cout<<buff.length()-1<<endl;
-    cout << endl;
+    //cout << endl;
     }
     //cout<<"buff0"<<buff[1]<<endl;
     //for (int i = 1; i<=buff.length()-1; i++)
     int total1=0;
     for (int i = buff.size()-1; i>=1; i--){
         int new_int = (buff[i]-48);
-        //cout<<"here:"<<new_int<<endl; //gives back 18, 22 (correct order)
+        cout<<new_int; //gives back 18, 22 (correct order)
         int result = 1;  
         int power = buff.length() -i -1;
         for (int m=0; m<power; m++){
@@ -51,7 +51,7 @@ void digits(int num,int base)
 
 
     }   
-    cout<<"total1:"<<total1<<endl;  //prints out 1778, which we want
+    //cout<<total1<<endl;  //prints out 1778, which we want
     //char final_char = char(total1);
     //cout<<final_char<<endl;
     
