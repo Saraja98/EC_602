@@ -31,7 +31,7 @@ void digits(int num,int base)
     }
     //cout<<"buff0"<<buff[1]<<endl;
     //for (int i = 1; i<=buff.length()-1; i++)
-    int total1;
+    int total1=0;
     for (int i = buff.size()-1; i>=1; i--){
         int new_int = (buff[i]-48);
         cout<<"here:"<<new_int<<endl; //gives back 18, 22 (correct order)
@@ -46,12 +46,12 @@ void digits(int num,int base)
             int final_var = result*new_int;  //is giving 18 and 80, which we want
             cout<<"final_var"<<final_var<<endl;
             //int total1;
-            total1 += final_var;  //when I print this below, it keeps changing/inceasing each time I run the code
+            total1 += final_var;  
 
 
 
     }   
-    cout<<"total1:"<<total1<<endl;  //I feel like this number changes everytime I run the code
+    cout<<"total1:"<<total1<<endl;  //prints out 1778, which we want
     //char final_char = char(total1);
     //cout<<final_char<<endl;
     
