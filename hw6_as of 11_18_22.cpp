@@ -1,3 +1,6 @@
+//Copyright 2022 Shannon Hull sghull@bu.edu
+//Copyright 2022 Saraja saraja@bu.edu
+
 #include <iostream>
 using std::cout;
 using std::cin;
@@ -32,14 +35,21 @@ void digits(int num,int base)
         int new_int = (buff[i]-48);
         cout<<"here:"<<new_int<<endl; //gives back 18, 22 (correct order)
         int result = 1;
-        for (int m=0; m<length-1; m++){
-            result = result*base;
+        int power = buff.length() -i -1;
+        for (int m=0; m<power; m++){
+            result = result*base;  //still only giving 80
+            cout<<result<<endl;
+
         
         }
-         int final_var = result*new_int;
-         int total1;
-         total1 += final_var;
-         //cout<<"total1"<<total1<<endl;
+            int final_var = result*new_int;  //gives 22*80, but also want 18*1
+            cout<<final_var<<endl;
+            int total1;
+            total1 += final_var;
+            cout<<"total1:"<<total1<<endl;  //I feel like this number changes everytime I run the code
+            //char final_char = char(total1);
+            //cout<<final_char<<endl;
+
     }   
 
     
