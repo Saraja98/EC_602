@@ -11,7 +11,7 @@ void digits(int num,int base)
 {   int length=0;
     int result=1;
     int numVal = 0;
-    int numArray [2];
+    //int numArray [2];
     string buff = " ";
     while (num > 0){
         {
@@ -31,27 +31,29 @@ void digits(int num,int base)
     }
     //cout<<"buff0"<<buff[1]<<endl;
     //for (int i = 1; i<=buff.length()-1; i++)
-    for (int i = buff.length()-1; i>=1; i--){
+    int total1;
+    for (int i = buff.size()-1; i>=1; i--){
         int new_int = (buff[i]-48);
         cout<<"here:"<<new_int<<endl; //gives back 18, 22 (correct order)
-        int result = 1;
+        int result = 1;  
         int power = buff.length() -i -1;
         for (int m=0; m<power; m++){
-            result = result*base;  //still only giving 80
-            cout<<result<<endl;
+            result = result*base;  //only giving 80, but its ok because 18 is still stored
+            cout<<"result"<<result<<endl;
 
         
         }
-            int final_var = result*new_int;  //gives 22*80, but also want 18*1
-            cout<<final_var<<endl;
-            int total1;
-            total1 += final_var;
-            cout<<"total1:"<<total1<<endl;  //I feel like this number changes everytime I run the code
-            //char final_char = char(total1);
-            //cout<<final_char<<endl;
+            int final_var = result*new_int;  //is giving 18 and 80, which we want
+            cout<<"final_var"<<final_var<<endl;
+            //int total1;
+            total1 += final_var;  //when I print this below, it keeps changing/inceasing each time I run the code
+
+
 
     }   
-
+    cout<<"total1:"<<total1<<endl;  //I feel like this number changes everytime I run the code
+    //char final_char = char(total1);
+    //cout<<final_char<<endl;
     
 }
 
@@ -80,6 +82,7 @@ for (int i = s.size() - 1; i >= 0; i--) {
 
             }
             int var3= result*var1;
+            cout<<"var3:"<<var3<<endl;
             total+=var3;
     }
     //cout << "total:"<< total<<endl;
@@ -130,6 +133,5 @@ convert_base(s,37,80);
 
 return 0;
 }
-
 
 
