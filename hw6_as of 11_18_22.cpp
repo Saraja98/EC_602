@@ -34,17 +34,17 @@ void digits(int num,int base)
     int total1=0;
     for (int i = buff.size()-1; i>=1; i--){
         int new_int = (buff[i]-48);
-        cout<<"here:"<<new_int<<endl; //gives back 18, 22 (correct order)
+        //cout<<"here:"<<new_int<<endl; //gives back 18, 22 (correct order)
         int result = 1;  
         int power = buff.length() -i -1;
         for (int m=0; m<power; m++){
             result = result*base;  //only giving 80, but its ok because 18 is still stored
-            cout<<"result"<<result<<endl;
+            //cout<<"result"<<result<<endl;
 
         
         }
             int final_var = result*new_int;  //is giving 18 and 80, which we want
-            cout<<"final_var"<<final_var<<endl;
+            //cout<<"final_var"<<final_var<<endl;
             //int total1;
             total1 += final_var;  
 
@@ -82,7 +82,7 @@ for (int i = s.size() - 1; i >= 0; i--) {
 
             }
             int var3= result*var1;
-            cout<<"var3:"<<var3<<endl;
+            //cout<<"var3:"<<var3<<endl;
             total+=var3;
     }
     //cout << "total:"<< total<<endl;
@@ -101,7 +101,7 @@ int convert_base(const std::string &s,int base,int target_base)
 
 {   int var8,var9;
     var8=print(s,base);
-    cout<<"total:"<<var8<<endl;
+    //cout<<"total:"<<var8<<endl;
     //total has to be passed through a function again to convert it into the target base
     digits(var8,target_base);
     //cout<<"var4:"<<var4<<endl;
@@ -124,8 +124,12 @@ int convert_base(const std::string &s,int base,int target_base)
 
 int main()
 {   int m;
-std::string s("12C");
-convert_base(s,37,80);
+std::string s("");
+int base;
+int target_base;
+cout<<"provide s, base, and target base:\n";
+cin>>s>>base>>target_base;
+convert_base(s,base,target_base);
     //cout<<m<<endl;
    
 
