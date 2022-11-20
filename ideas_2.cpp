@@ -64,7 +64,7 @@ int heavy(int num, int base) {
       }
   if (size == 100){
         cout<<"not heavy 0"<<endl;
-        }
+        } //do not want an else statement, can we do that??
       
   
 
