@@ -54,11 +54,16 @@ int heavy(int num, int base) {
        num_square.push_back(num_square_value);
        //breaking condition 
        if (num_square_value==1){
+           count<<heavy 1"<<endl;
            break;
        }
+       else{
+       continue;
           
       }
-  
+  if (size == 100){
+        cout<<"not heavy 0"<<endl;
+        }
       
   
 
