@@ -27,6 +27,7 @@ int sum_of_squares (int num, int base){ //function to put input in the assigned 
 int heavy(int num, int base) {
     //declare a vector 
   std::vector<int> num_square;
+  int size = num_square.size();
    //num_square.push_back(num);
 
   //cout << "Initial Vector: ";
@@ -54,7 +55,7 @@ int heavy(int num, int base) {
        num_square.push_back(num_square_value);
        //breaking condition 
        if (num_square_value==1){
-           count<<heavy 1"<<endl;
+           cout<<"heavy 1"<<endl;
            break;
        }
        else{
