@@ -26,7 +26,7 @@ int sum_of_squares (int num, int base){ //function to put input in the assigned 
 
 int heavy(int num, int base) {
   std::vector<int> num_square;
-  int size = num_square.size();
+  int size = num_square.size(); //this is not giving how many terms in the  
 
   int num_square_value=sum_of_squares(num,base);
 
@@ -35,7 +35,7 @@ int heavy(int num, int base) {
  
       for(int i=0;i<100;i++)
       {
-        cout<<"num_square_value[i]";
+        //cout<<"num_square_value[i]";
         //for indexing list[0]
         int & element = num_square[i];
        int num_square_value=sum_of_squares(element,base);
@@ -49,23 +49,27 @@ int heavy(int num, int base) {
        continue;
           
       }
-  if (size == 100){
+
+}
+  if (num_square.size() == 101){  //this if/else statement is inside heavy, but outside all other loops
         cout<<"not heavy 0"<<endl;
-        } //do not want an else statement, can we do that??
+} //do not want an else statement, can we do that??
+  //else{
+    //cout<<"length:"<<size;
+//}
       
   
 
-  cout << "\nUpdated Vector: ";
+  //cout << "\nUpdated Vector: ";
 
-  for (const int& i : num_square) {
-    cout << i << "  ";
+  //for (const int& i : num_square) {
+    //cout << i << "  "<<endl;
+    
   }
-
-  return 0;
-}
-
-}
+    //cout<<num_square.size()<<endl;
+  //return 0;
+//}
 int main(){ //we should be taking input from command line, 2 arguments (plus name of program), argc = 3?
-   heavy(5,20);
+   heavy(91,10);
 
 }
