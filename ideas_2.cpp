@@ -25,26 +25,13 @@ int sum_of_squares (int num, int base){ //function to put input in the assigned 
 
 
 int heavy(int num, int base) {
-    //declare a vector 
   std::vector<int> num_square;
   int size = num_square.size();
-   //num_square.push_back(num);
 
-  //cout << "Initial Vector: ";
-
-  //for (const int& i : num_square) {
-//    cout << i << "  ";
- // }
- //calculate square of each digit add them 
   int num_square_value=sum_of_squares(num,base);
 
-  // add the squares to the vector
-  //5,put in a list,go in the loop,append other sqaures depending on if they are zero or not
   num_square.push_back(num_square_value);
-  //while value is not 1 keep looping and calculating the 
-  //int & element = [0];
-  //do the loop as long as you dont get a one or if the number repeats itself then break
-  //
+
  
       for(int i=0;i<100;i++)
       {
@@ -76,8 +63,9 @@ int heavy(int num, int base) {
 
   return 0;
 }
+
+}
 int main(){ //we should be taking input from command line, 2 arguments (plus name of program), argc = 3?
    heavy(5,20);
-   //int num = 4  //will be argv[1]
-   //int base = 10 //will be argv[2]
+
 }
