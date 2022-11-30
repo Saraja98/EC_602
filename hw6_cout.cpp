@@ -55,7 +55,7 @@ int digits(int num,int base)
     //cout<<total1<<endl;  //prints out 1778, which we want
     //char final_char = char(total1);
     //cout<<final_char<<endl;
-    
+ return total1;   
 }
 
    
