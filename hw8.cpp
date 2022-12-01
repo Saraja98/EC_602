@@ -45,36 +45,62 @@ void isValid(char board[9])
     cout<<"x"<<xCount<<endl;
     cout<<"o"<<oCount<<endl;
     cout<<"#"<<hashCount<<endl;
+    bool flag=false;
      // Board can be valid only if either xCount and oCount
     // is same or count is one more than oCount
     //xCount>2*(oCount)
     // if ( xCount != oCount + 1 || xCount<3 || xCount<oCount)
-    if (  xCount<oCount ||xCount<3||oCount==hashCount)
+    if (  xCount<oCount ||xCount<3||(oCount==hashCount) && (xCount>oCount))
     {
         cout<<"i:invalid";
    
 }
 //It is invalid because x played 5 times and o only played 2 times
 //check if x is wining 
-    else if((xCount==oCount || xCount==oCount+1))
+
+    else if((xCount==oCount || xCount==oCount+1||hashCount==xCount+1))
     {   // Check if 'O' is winner
         if (isCWin(board, 'o')){
             
             
             // Check if 'X' is also winner, then
-            // return false
-            if (isCWin(board, 'x')){
-                cout<<"i:invalid";}
+           
+            //if (isCWin(board, 'x'))
+            //{
+            //    cout<<"i:invalid";
+                
+            //}
+            
             cout<<"o: valid, o has won";
-            //return "o: valid, o has won";
-        }
-        //// If 'X' wins, then count of X must be greater
-        if (isCWin(board, 'x') && xCount > oCount){
-            cout<<"x: valid, x has won";
+            flag=true;
+            
+            
         }
         
-
-
+        //// If 'X' wins, then count of X must be greater
+            if (isCWin(board, 'x')){
+            cout<<"x: valid, x has won";
+            flag=true;
+            
+            
+            // Check if 'X' is also winner, then
+            // return false
+            //if (isCWin(board, 'o')){
+            //    cout<<"i:invalid";}
+            //else{
+            //cout<<"o: valid, o has won";
+                
+            //}
+            if(hashCount>xCount&&flag==false){
+             cout<<"c: valid, game continues";
+        }
+        }
+        if(hashCount>xCount&&flag==false)
+            {
+             cout<<"c: valid, game continues";
+            }
+      
+   
 }
 }
 
