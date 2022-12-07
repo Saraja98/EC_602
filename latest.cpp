@@ -31,21 +31,36 @@ void sortArr(vector<int> &vect, int n,vector<int> &Player)
 	// Displaying sorted element
 	// with previous indexes
 	// corresponding to each element
-	cout << "Element\t"
-		<< "index" << endl;
+	cout << "Time\t"
+		<< "Runner\t"
+		<< "Qualified or Not Qualified" << endl;
 	for (int i = 0; i < vp.size(); i++) {
-		cout << vp[i].first<<endl;
+	     int m=vp[i].second;
+	     int time_taken=vp[i].first;
+	     if(time_taken<20)
+	     {
+	         cout << vp[i].first << "\t"
+             << Player[m]<<"\t"
+             <<"Qualified"<<endl;
+	         
+	     }
+	     else{
+	     cout << vp[i].first << "\t"
+             << Player[m] <<"\t"
+             <<"Not Qualified"<<endl;
+	     }
+             
 		//second is the previous index which will be mapped to the player
 	
         
             //std::cout << Player[i].Player<< ' ';
-		    int m=vp[i].second;
+		    
 		    //cout<<m<<endl;
-		    cout<<"Player"<<Player[m]<<endl;
+		    //cout<<"Player"<<Player[m]<<endl;
 	}
 }
 void print(std::vector <int> const &a) {
-   std::cout << "The vector elements are : ";
+   //std::cout << "The vector elements are : ";
 
    for(int i=0; i < a.size(); i++)
    std::cout << a.at(i) << ' ';
@@ -70,11 +85,12 @@ void heat(const vector<int> &vect){
         
     
     }
-    print(Player);
+  
     //now I will map the sorted time to the player to decide who won 1st ,2nd,3rd 
     //Keep track of previous indexes after sorting a vector so that I can map it back 
-    //int n = sizeof(Time) / sizeof(Time[0]);
+    
 	sortArr(Time, 8,Player);
+	
     
     
     
@@ -86,9 +102,14 @@ void heat(const vector<int> &vect){
     
     }
 
-
 int main() {
+   //int a;
+   //vector<int> v;
+   // user can add 16 element,(player,time)
+   //vector <int> original = {1,2,3,4,5,6,7,8,10,11,12,13,14,15,16}; // creating the original vector
 
+   //heat( original ); // calling the function func
+   
    // user can input runner and time in pairs, with a space in between)
     vector <int> original;
     cout<<"Input runner number, then time, in pairs"<<endl;
@@ -104,10 +125,17 @@ int main() {
 
 
    heat( original ); // calling the function func
+
+  // heat("12345678")
+
+   //heat(v);
    
 
    return 0;
 } 
+   
+
+
    
 
    
