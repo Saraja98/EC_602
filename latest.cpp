@@ -88,16 +88,22 @@ void heat(const vector<int> &vect){
 
 
 int main() {
-   //int a;
-   //vector<int> v;
-   // user can add 16 element,(player,time)
-   vector <int> original = {1,21,2,43,3,65,4,85,5,117,6,13,7,15,8,67}; // creating the original vector
+
+   // user can input runner and time in pairs, with a space in between)
+    vector <int> original;
+    cout<<"Input runner number, then time, in pairs"<<endl;
+   int runner;
+   int speed;
+  int n=8;
+   for (int i=0; i<n; i++){
+   cin>>runner>>speed;
+    original.push_back(runner);
+    original.push_back(speed);
+   }
+ 
+
 
    heat( original ); // calling the function func
-
-  // heat("12345678")
-
-   //heat(v);
    
 
    return 0;
