@@ -12,7 +12,7 @@ using std::endl;
 using std::vector;
 using std::pair;
 using std::make_pair;
-void sortArr(vector<int> &vect, int n,vector<int> &Player)
+void sortArr(vector<int> &vect, int n,vector<int> &Player)  //function to sort times in ascending order (shortest/quickest time first
 {
 
 	// Vector to store element
@@ -31,13 +31,13 @@ void sortArr(vector<int> &vect, int n,vector<int> &Player)
 	// Displaying sorted element
 	// with previous indexes
 	// corresponding to each element
-	cout << "Time\t"
+	cout << "Time\t"     //creating 3 headings for output table
 		<< "Runner\t"
 		<< "Qualified or Not Qualified" << endl;
 	for (int i = 0; i < vp.size(); i++) {
 	     int m=vp[i].second;
 	     int time_taken=vp[i].first;
-	     if(time_taken<20)
+	     if(time_taken<20)   //sets 20 seconds as the qualifying time
 	     {
 	         cout << vp[i].first << "\t"
              << Player[m]<<"\t"
@@ -72,12 +72,12 @@ void heat(const vector<int> &vect){
     vector<int> Time;
     vector<int> Player;
     
-    for (int i = 0; i < vect.size(); i++) {
+    for (int i = 0; i < vect.size(); i++) {  //takes every other element in the original vector and assigns as times
         if(i%2==0){
            Player.push_back(vect[i]);
            //cout << "Time"<<vect[i] << " ";
                    }
-        else{
+        else{    //takes the remaining elements and assigns as vectors
             Time.push_back(vect[i]);
             //cout <<"Player"<<vect[i] << " ";
             }
@@ -89,7 +89,7 @@ void heat(const vector<int> &vect){
     //now I will map the sorted time to the player to decide who won 1st ,2nd,3rd 
     //Keep track of previous indexes after sorting a vector so that I can map it back 
     
-	sortArr(Time, 8,Player);
+	sortArr(Time, 8,Player); //sends times to the sort function to be sorted
 	
     
     
