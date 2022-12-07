@@ -53,10 +53,7 @@ void sortArr(vector<int> &vect, int n,vector<int> &Player)  //function to sort t
 		//second is the previous index which will be mapped to the player
 	
         
-            //std::cout << Player[i].Player<< ' ';
-		    
-		    //cout<<m<<endl;
-		    //cout<<"Player"<<Player[m]<<endl;
+
 	}
 }
 void print(std::vector <int> const &a) {
